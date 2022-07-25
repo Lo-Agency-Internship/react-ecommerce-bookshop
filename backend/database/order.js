@@ -13,7 +13,7 @@ const Order = sequelize.define('Order',
         },
         orderCode: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         deletedAt: {
             type: DataTypes.TIME
