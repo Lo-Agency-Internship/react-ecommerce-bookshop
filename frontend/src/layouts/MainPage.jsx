@@ -1,10 +1,9 @@
-import './index.css';
-
+import React from "react";
 function MainPage() {
   return (
-  
+
     <>
-     <p className='bg-red-500'>Bookshop Ecommerce</p>
+      <p className='bg-red-500'>Bookshop Ecommerce</p>
     </>
   )
 }
