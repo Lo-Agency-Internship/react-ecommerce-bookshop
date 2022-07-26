@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 function MainPage() {
   return (
 
     <>
-      <p className='bg-red-500'>Bookshop Ecommerce</p>
+      <Navbar/>
     </>
   )
 }
