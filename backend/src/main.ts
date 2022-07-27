@@ -1,8 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-const sequelize = require("../database/database.js")
+const User = require("../database/user")
+const sequelize = require("../database/database")
 
-sequelize.sync({alter: true}).then(()=>console.log('database is ready'))
+sequelize.sync({alter: true})
+  .then(async ()=>{
+    await User.create({
+      email: "admin",
+      password: "admin",
+      isAdmin: true,
+      address: "admin",
+      name: "admin",
+      salt: ""
+    })
+    console.log('Database created successfully!')}
+  )
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

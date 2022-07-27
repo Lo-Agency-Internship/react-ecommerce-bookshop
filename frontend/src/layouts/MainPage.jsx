@@ -1,11 +1,19 @@
 import React from "react";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-function MainPage() {
-  return (
+import Modal from "../components/modalSignup";
+import Footer from "../components/Footer";
+import { useState } from "react"; 
 
+function MainPage() {
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+  return (
     <>
-      <Navbar/>
+      
+      
+      <Navbar ShowSignUp= {setShowSignUpModal}/>
+
+      {showSignUpModal && <Modal/>}
       <Footer/>
     </>
   )
