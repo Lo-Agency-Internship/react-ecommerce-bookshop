@@ -4,7 +4,7 @@ import Modal, { handleClick } from "./modalSignup";
 
 const Dropdown =({ShowSignUp})=>{
     const [showOptions, setShowOptions]=useState(false);
-    const handleClick=()=>{setShowOptions(!showOptions);};
+    const handleClick=()=>{setShowOptions(!showOptions)};
     return ( 
   <>
 <div className="relative inline-block text-left">
