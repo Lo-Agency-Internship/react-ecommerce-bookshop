@@ -1,6 +1,6 @@
 import React from "react";
 import Images from "../assets/images/bookshop.png"
-import Dropdown from "./DropDown";
+import Dropdown from "./dropDown";
 const Navbar = ({ShowSignUp}) => {
     return ( 
         <div className="relative bg-white ">
