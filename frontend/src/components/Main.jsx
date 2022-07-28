@@ -1,7 +1,7 @@
 import React  from "react";
 import { useState , useEffect } from "react"
-import Carousel from "./Carousel";
-import SearchBar from "./SearchBar";
+import Carousel from "./carousel";
+import SearchBar from "./searchBar";
 
 
 import image1 from "./../assets/images/main/1.jpg" 
