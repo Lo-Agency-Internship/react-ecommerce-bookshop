@@ -5,7 +5,7 @@ function SignInModal() {
 //   const [showModal, setShowModal] = React.useState(false);
   return (
 
-<div className='w-screen'>
+<div className='w-screen my-12'>
     <div className='w-screen flex flex-col justify-center items-center'>
         {/* <img className='w-8/12 h-auto' src={bookshop} alt="" /> */}
         <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg '>

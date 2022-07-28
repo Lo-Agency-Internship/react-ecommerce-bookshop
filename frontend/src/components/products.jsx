@@ -2,7 +2,7 @@ import React  from "react";
 import { useState , useEffect } from "react"
 import Card from "./card";
 
-const Carousel = ({BookInfos})=> 
+const Products = ({BookInfos,IsAdmin})=> 
 {
     return(
         <>
@@ -15,7 +15,7 @@ const Carousel = ({BookInfos})=>
                     {BookInfos.map((element,index) => (
                             
                     
-                        <Card BookInfo={element} key={index}/>
+                        <Card BookInfo={element} key={index} IsAdmin={IsAdmin}/>
                     ))}
               
               </div>
@@ -27,4 +27,4 @@ const Carousel = ({BookInfos})=>
         </>
     )
 }
-export default Carousel
+export default Products

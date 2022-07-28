@@ -1,7 +1,7 @@
 import React from "react";
 import Images from "../assets/images/bookshop.png"
 import Dropdown from "./dropDown";
-const Navbar = ({setShowSignUp,setShowSignIn}) => {
+const Navbar = ({setShowSignUp,setShowSignIn,setMain}) => {
     return ( 
         <div className="relative bg-white ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -10,9 +10,10 @@ const Navbar = ({setShowSignUp,setShowSignIn}) => {
                   <span className="sr-only">Workflow</span>
                   <img className="h-8 w-auto sm:h-20" src={Images} alt="Img"/>
               </div>
+            
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} />
-
+              <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} setMain={setMain}/>
+            
               </div>
             </div>
           </div>

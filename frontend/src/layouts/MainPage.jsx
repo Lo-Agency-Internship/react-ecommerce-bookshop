@@ -10,14 +10,17 @@ import SignInModal from "../components/modalsignin";
 function MainPage() {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
+  const [main, setMain] = useState(true);
   return (
     <>
-      
+     
       <Navbar setShowSignUp= {setShowSignUpModal}
-      setShowSignIn= {setShowSignInModal} />
-
-      {showSignUpModal && <SignUpModal/>}
-      {showSignInModal && <SignInModal/>}
+      setShowSignIn= {setShowSignInModal} setMain={setMain}/>
+      <Main/> 
+      {showSignUpModal && <SignUpModal/> }
+      {showSignInModal && <SignInModal/> }
+     
+     
       <Footer/>
     </>
   )

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 
-const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
+const Dropdown = ({ setShowSignUp, setShowSignIn ,setMain}) => {
   const [showOptions, setShowOptions] = useState(false);
   const handleClick = () => { setShowOptions(!showOptions) };
   return (
@@ -23,6 +23,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
               onClick={() => {
                 setShowSignUp(true)
                 setShowSignIn(false)
+                setMain(false)
               }}
               type=""
               className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
@@ -32,6 +33,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
             <button onClick={() => {
               setShowSignIn(true)
               setShowSignUp(false)
+              setMain(false)
             }}
               type=""
               className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
