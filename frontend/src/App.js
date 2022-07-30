@@ -9,6 +9,8 @@ function App() {
       <Route path="/" element={<MainPage />} />
     </Routes>
   )
+
+  
 }
 
 export default App;
