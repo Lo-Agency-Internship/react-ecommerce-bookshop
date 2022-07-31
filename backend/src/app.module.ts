@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import {BookModule}  from './book/book.module'
-import {OrderModule}  from './order/order.module'
-import {UserModule}  from './user/user.module'
+import { BookModule } from './book/module';
+import { DatabaseProvider } from './database.provider';
+import { OrderModule } from './order/module';
 
 @Module({
-  imports: [BookModule,OrderModule,UserModule]
+  providers: [DatabaseProvider],
+  imports: [BookModule, OrderModule],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,18 +1,12 @@
-import { Body, Injectable } from '@nestjs/common';
-
-const Order = require('../../database/order')
-const BookByOrder = require('../../database/bookByOrder')
-
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class OrderService {
+  async createOrder(body) {
+    console.table(body);
 
-    async createOrder(body)
-    {
-        console.table(body);
+    //const { BookId, count, price, OrderId } = body;
 
-        const {BookId,count,price,OrderId} = body;
-
-        await BookByOrder.create({BookId,count,price,OrderId});
-    }
+    //await BookByOrder.create({ BookId, count, price, OrderId });
+  }
 }
