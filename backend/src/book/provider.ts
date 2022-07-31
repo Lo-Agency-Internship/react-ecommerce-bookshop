@@ -4,6 +4,6 @@ import { Book } from './model';
 export const PROVIDER = 'BOOK_REPOSITORY';
 
 export const BooksProvider: Provider = {
-	provide: PROVIDER,
-	useValue: Book,
+  provide: PROVIDER,
+  useValue: Book,
 };
