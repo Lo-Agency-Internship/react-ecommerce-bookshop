@@ -1,6 +1,7 @@
 import React from "react";
 import Images from "../assets/images/bookshop.png"
 import Dropdown from "./dropDown";
+
 const Navbar = ({ setShowSignUp, setShowSignIn }) => {
   const User = null;
   return (
@@ -13,7 +14,6 @@ const Navbar = ({ setShowSignUp, setShowSignIn }) => {
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} />
-
           </div>
         </div>
       </div>
