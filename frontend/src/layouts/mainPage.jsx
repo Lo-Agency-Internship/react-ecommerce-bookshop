@@ -1,7 +1,6 @@
 import React from "react";
 import Main from "../components/main";
 import Navbar from "../components/navbar";
-import Modal from "../components/modalSignup";
 import Footer from "../components/footer";
 import { useState } from "react"; 
 import SignUpModal from "../components/modalSignup";
