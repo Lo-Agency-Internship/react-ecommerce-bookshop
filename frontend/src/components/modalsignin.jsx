@@ -1,9 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-=======
 import { userSchema } from "../validations/userValidations";
 
->>>>>>> 7d233f92ef21764d7a333cb97204b7eab724a5e9
 
 function SignInModal() {
   const handleSubmit = async (event) => {
