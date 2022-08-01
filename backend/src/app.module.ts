@@ -7,4 +7,4 @@ import { OrderModule } from './order/module';
   providers: [DatabaseProvider],
   imports: [BookModule, OrderModule],
 })
-export class AppModule { }
+export class AppModule {}
