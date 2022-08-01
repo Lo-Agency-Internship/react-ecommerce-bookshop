@@ -8,21 +8,17 @@ import { config } from 'dotenv';
 import { UsersProvider } from 'src/user/provider';
 config();
 
-
 @Module({
-    imports:[JwtModule.register({
-        secret:process.env.JWT_SECRET,
-        signOptions: {
-            expiresIn: 3600,
-          },
+  imports: [
+    JwtModule.register({
+      secret: process.env.JWT_SECRET,
+      signOptions: {
+        expiresIn: 3600,
+      },
     }),
-    
-],
-    controllers:[AuthController],
-    providers:[AuthService,JwtStrategy,PassportModule,UsersProvider],
-    exports:[AuthService]
-
-
+  ],
+  controllers: [AuthController],
+  providers: [AuthService, JwtStrategy, PassportModule, UsersProvider],
+  exports: [AuthService],
 })
-
 export class AuthModule {}

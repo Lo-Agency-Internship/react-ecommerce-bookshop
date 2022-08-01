@@ -7,6 +7,6 @@ import { UserModule } from './user/module';
 
 @Module({
   providers: [DatabaseProvider],
-  imports: [BookModule, OrderModule, UserModule,AuthModule],
+  imports: [BookModule, OrderModule, UserModule, AuthModule],
 })
 export class AppModule {}
