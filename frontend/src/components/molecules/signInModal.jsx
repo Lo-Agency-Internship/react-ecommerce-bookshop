@@ -25,6 +25,7 @@ function SignInModal() {
             <label>Username</label>
             <input className='rounded-lg bg-gray-600 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
               type="text"
+              placeholder="e-mail"
             />
             <small className="text-danger">
             </small>
@@ -33,6 +34,7 @@ function SignInModal() {
             <label>Password</label>
             <input className='rounded-lg bg-gray-600 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' 
             type="password"
+            placeholder="password"
              />
  
           </div>
