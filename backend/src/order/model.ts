@@ -7,11 +7,16 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { Book } from 'src/book/model';
+import { User } from 'src/user/model';
 
 @Table
 export class Order extends Model {
   @Column({ type: DataTypes.INTEGER, allowNull: true })
   orderCode: number;
+
+  @ForeignKey(() => User)
+  @Column
+  userId: number;
 
   @HasMany(() => OrderedBook)
   orderedBooks: OrderedBook[];
