@@ -12,7 +12,7 @@ import { AddBookDto, EditBookDto } from './dtos';
 
 @Controller('books')
 export class BookController {
-  constructor(private readonly bookService: BookService) { }
+  constructor(private readonly bookService: BookService) {}
 
   @Get()
   getAllBooks() {
