@@ -1,6 +1,6 @@
 import React from "react";
-import Images from "../assets/images/bookshop.png"
-import Dropdown from "./dropDown";
+import Images from "../../assets/images/bookshop.png"
+import Dropdown from "../molecules/dropDown";
 
 const Navbar = ({ setShowSignUp, setShowSignIn }) => {
   const User = null;

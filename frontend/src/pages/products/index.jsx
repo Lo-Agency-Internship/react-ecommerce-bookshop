@@ -1,7 +1,7 @@
-import Footer from "../../components/footer";
-import Navbar from "../../components/navbar";
-import Products from "../../components/products";
-import SearchBar from "../../components/searchBar";
+import Footer from "../../components/organisms/footer";
+import Navbar from "../../components/organisms/navbar";
+import Products from "../../components/organisms/products";
+import SearchBar from "../../components/molecules/searchBar";
 
 function ProductsPage() {
 	return <>

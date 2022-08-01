@@ -1,5 +1,5 @@
-import SignUpModal from "../components/modalSignup";
-import SignInModal from "../components/modalsignin";
+import SignUpModal from "../components/molecules/signUpModal";
+import SignInModal from "../components/molecules/signInModal";
 import { useState } from "react";
 
 function MainPage() {
