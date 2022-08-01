@@ -1,5 +1,5 @@
 import { Column, HasMany, Model, Table } from 'sequelize-typescript';
-import { DataTypes } from 'sequelize/types';
+import { DataTypes } from 'sequelize';
 import { Order } from 'src/order/model';
 
 @Table
