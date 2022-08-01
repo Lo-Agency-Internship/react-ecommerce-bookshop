@@ -1,5 +1,5 @@
 import React from "react";
-import { userSchema } from "../validations/userValidations";
+import { userSchema } from "../../validations/userValidations";
 
 
 function SignInModal() {

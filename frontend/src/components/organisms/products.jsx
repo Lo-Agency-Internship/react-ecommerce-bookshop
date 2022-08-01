@@ -1,8 +1,8 @@
 import React  from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useApiContext } from "../context/api";
-import Card from "./card";
+import { useApiContext } from "../../context/api";
+import Card from "../molecules/card";
 
 const Products = (props)=> 
 {

@@ -1,7 +1,6 @@
 import React from "react";
-import ItemsContainer from "./itemsContainer";
-import SocialIcons from "./socialIcons";
-import {Icons} from "./menus";
+import ItemsContainer from "../molecules/itemsContainer";
+import SocialIcons from "../molecules/socialIcons";
 
 const Footer = () => {
   return (
@@ -14,7 +13,7 @@ const Footer = () => {
       >
         <span>© 2022 All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
-        <SocialIcons Icons={Icons} />
+        <SocialIcons/>
       </div>
     </footer>
   );

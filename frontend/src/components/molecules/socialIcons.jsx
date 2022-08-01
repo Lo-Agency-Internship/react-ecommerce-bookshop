@@ -1,6 +1,13 @@
 import React from "react";
 
-const SocialIcons = ({Icons}) => {
+const SocialIcons = () => {
+ const Icons = [
+    { name: "logo-facebook", link: "#" },
+    { name: "logo-twitter", link: "#" },
+    { name: "logo-github", link: "#" },
+    { name: "logo-linkedin", link: "#" },
+    { name: "logo-instagram", link: "#" },
+  ];
   return (
     <div className="text-teal-500">
       {Icons.map((icon) => (
