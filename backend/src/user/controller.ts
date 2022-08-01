@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserService } from './service';
 @Controller('users')
 export class UserController {
@@ -6,6 +6,11 @@ export class UserController {
 
   @Get()
   getAllUsers() {
-    console.log('users');
+    console.log('get');
+  }
+
+  @Post()
+  signup(@Body() body) {
+    return this.userService.signup(body);
   }
 }
