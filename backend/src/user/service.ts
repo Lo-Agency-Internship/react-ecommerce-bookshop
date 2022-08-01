@@ -8,4 +8,8 @@ export class UserService {
     @Inject(PROVIDER)
     private readonly userRepository: typeof User,
   ) {}
+
+  async signup(body) {
+    return await this.userRepository.create(body);
+  }
 }
