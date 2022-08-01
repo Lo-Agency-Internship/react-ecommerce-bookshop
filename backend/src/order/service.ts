@@ -13,13 +13,10 @@ export class OrderService {
   ) {}
 
   async createOrder(body) {
-    const { orderCode, userId } = body;
-    console.table(body);
     return await this.orderRepository.create(body);
   }
 
   async addToOrderedBook(body) {
-   
     return await this.orderBookRepository.create(body);
   }
 }

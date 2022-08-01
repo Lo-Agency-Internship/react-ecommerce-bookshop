@@ -11,8 +11,7 @@ export class OrderController {
   }
 
   @Post('/api/toorderbook')
-  addToOrderedBook(@Body() body){
-      return this.orderService.addToOrderedBook(body);
+  addToOrderedBook(@Body() body) {
+    return this.orderService.addToOrderedBook(body);
   }
-
 }
