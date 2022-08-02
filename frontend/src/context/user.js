@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import axios from "axios"
 import { backend } from "../util";
 
@@ -10,9 +10,9 @@ export const UserProvider = ({ children }) => {
 
 	const [user, setUser] = useState(null);
 
-	const SingIn = async ({username, password}) => {
+	const SingIn = async ({email, password}) => {
 		setIsLoading(true);
-		const {data} = await axios.post(backend("auth/login"), {username, password})
+		const {data} = await axios.post(backend("auth/login"), {email, password})
 		setIsLoading(false);
 
 		data.token = // ey.......
