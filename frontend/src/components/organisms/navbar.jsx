@@ -1,8 +1,14 @@
 import React from "react";
 import Images from "../../assets/images/bookshop.png"
 import Dropdown from "../molecules/dropDown";
+import { useLocation } from "react-router-dom";
 
-const Navbar = ({ setShowSignUp, setShowSignIn }) => {
+
+const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
+  const { pathname } = useLocation()
+
+  console.log(pathname);
+
   const User = null;
   return (
     <div className="relative bg-white ">
@@ -13,6 +19,13 @@ const Navbar = ({ setShowSignUp, setShowSignIn }) => {
             <img className="h-8 w-auto sm:h-20" src={Images} alt="Img" />
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            {pathname === "/products" &&
+              <button
+                onClick={() => setCreateModalIsOpen(true)}
+                className="mr-2 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 ">
+                Add New
+              </button>}
+
             <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} />
           </div>
         </div>
