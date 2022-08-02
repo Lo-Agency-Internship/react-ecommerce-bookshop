@@ -1,17 +1,28 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { CreateOrderDto } from './dtos';
 import { OrderService } from './service';
 
 @Controller('orders')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
-  @Post()
-  createOrders(@Body() body) {
-    return this.orderService.createOrder(body);
+  @Get()
+  getOrders(){
+    return this.orderService.getAllOrders();
   }
 
-  @Post('/api/toorderbook')
-  addToOrderedBook(@Body() body) {
-    return this.orderService.addToOrderedBook(body);
+  @Post()
+  createOrder(@Body() createOrderDto: CreateOrderDto) {
+    return this.orderService.createOrder(createOrderDto);
+  }
+
+  @Get(":id")
+  getOrderById(@Param('id') id: number){
+    return this.orderService.getOrderById({id});
+  }
+
+  @Post(":id")
+  confirm(@Param('id') id: number) {
+    return this.orderService.confirmOrder(id);
   }
 }
