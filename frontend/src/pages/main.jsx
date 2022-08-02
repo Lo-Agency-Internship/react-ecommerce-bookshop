@@ -8,12 +8,12 @@ function MainPage() {
     const [showSignInModal, setShowSignInModal] = useState(false)
     return (
         <>
-			<div><Navbar setShowSignUp={setShowSignUpModal} setShowSignIn={setShowSignInModal}/> 
-			</div>
-          
-            {showSignUpModal && <SignUpModal/> }
-            {showSignInModal && <SignInModal/> }
-         </>
-)
+            <div><Navbar setShowSignUp={setShowSignUpModal} setShowSignIn={setShowSignInModal} />
+            </div>
+
+            {showSignUpModal && <SignUpModal setOpen={setShowSignUpModal} />}
+            {showSignInModal && <SignInModal setOpen={setShowSignInModal} />}
+        </>
+    )
 }
 export default MainPage
