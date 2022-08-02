@@ -1,22 +1,68 @@
 import React from "react";
+import { priceSchema, authorSchema, titleSchema, genreSchema, publisherSchema } from "../../validations/bookModalValidation";
+import axios from "axios";
+import { useState } from "react";
+import { backend } from "../../util";
 
 function CreatBookModal({ setOpen }) {
+    const [error, setError] = useState(null)
+    async function validate(data) {
+        let isValid = await priceSchema.isValid({ price: data.price })
+        if (!isValid) {
+            return { error: "price is not Valid" }
+        }
+        isValid = await authorSchema.isValid({ author: data.author })
+        if (!isValid) {
+            return { error: "author is not Valid" }
+        }
+        isValid = await titleSchema.isValid({ title: data.title })
+        if (!isValid) {
+            return { error: "title is not Valid" }
+        }
+        isValid = await genreSchema.isValid({ genre: data.genre })
+        if (!isValid) {
+            return { error: "publisher is not Valid" }
+        }
+
+        isValid = await publisherSchema.isValid({ publisher: data.publisher })
+        if (!isValid) {
+            return { error: "publisher is not Valid" }
+        }
+
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         let formData = {
-            username: event.target[0].value,
-            password: event.target[1].value,
+            title: event.target[0].value,
+            author: event.target[1].value,
+            genre: event.target[2].value,
+            publisher: event.target[3].value,
+            price: event.target[4].value,
         };
 
+
+        const validation = await validate(formData)
+
+        if (!validation?.error) {
+            const { title, author, genre, publisher, price } = formData
+            const { data } = await axios.post(backend("books"), { title, author, genre, publisher, price })
+
+            return data
+        }
+        else {
+            setError(validation.error)
+        }
     };
 
     return (
-        <form action="">
-            <div
-                className="py-12 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0" id="modal">
-                <div role="alert"
-                    className="container mx-auto w-11/12 md:w-2/3 max-w-lg"
-                >
+
+        <div
+            className="py-12 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0" id="modal">
+            <div role="alert"
+                className="container mx-auto w-11/12 md:w-2/3 max-w-lg"
+            >
+                <form onSubmit={handleSubmit}>
                     <div
                         className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400"
                     >
@@ -25,6 +71,7 @@ function CreatBookModal({ setOpen }) {
                         >
                             Enter Book Details
                         </h1>
+                        {error && <p className="text-red-500"> {error} </p>}
                         <label
                             htmlFor="title"
                             className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
@@ -52,25 +99,18 @@ function CreatBookModal({ setOpen }) {
                             placeholder="Jane Austen"
                         />
                         <label
-                            htmlFor="genre"
+                            htmlFor="author"
                             className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
                         >
-                            Choose a genre:
+                            Genre
                         </label>
-                        <select
-                            name="genre"
-                            id="Genre"
+                        <input
+                            id="genre"
                             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border
-                         focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm
-                          border-gray-300 rounded border"
-                        >
-                            <option value="comedy">Comedy</option>
-                            <option value="horror">Horror</option>
-                            <option value="drama">Drama</option>
-                            <option value="science">Science</option>
-                            <option value="fiction">Fiction</option>
-                            <option value="others">Others</option>
-                        </select>
+                         focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 
+                         text-sm border-gray-300 rounded border"
+                            placeholder="Fiction"
+                        />
                         <label
                             htmlFor="name"
                             className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
@@ -138,10 +178,11 @@ function CreatBookModal({ setOpen }) {
                             </svg>
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
-    )
-};
+        </div>
+
+    );
+}
 export default CreatBookModal
 
