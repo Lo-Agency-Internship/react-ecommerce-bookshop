@@ -1,17 +1,18 @@
 import React from "react";
-// import { userSchema } from "../../validations/userValidations";
+import axios from "axios";
+import { backend } from "../../util";
 
 
 function SignInModal() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let formData = {
-      username: event.target[0].value,
+      email: event.target[0].value,
       password: event.target[1].value,
     };
     console.log(formData);
-    // const isValid = await userSchema.isValid(formData);
-    // console.log(isValid);
+    const {loginData} = await axios.post(backend("auth/login"), formData) 
+
   };
 
   return (
