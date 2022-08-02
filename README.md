@@ -10,12 +10,17 @@ Clone the repository: <br>
 The App has two specific folders, Backend and Frontend.
 To run Backend part of the App follow these steps after clone project:
 ```
+cd backend
 npm i
 npm run start:dev
 ```
+This application loads the variables defined in the .env file.
+In order to use this application you should create .env file in the backend directory and put your secret key in this file for creating JWT token, In order to create secret key we suggest you to use crypto library of node.js.we also have .env.sample file in the backend directory to show how to define the secret key.
+you should also create .env file in our frontend directory in order to define API address. <br>
 
-Also, for run Frontend part:
+In addition,open new terminal for run Frontend part:
 ```
+cd frontend
 npm i
 npm run start
 ```
@@ -26,13 +31,15 @@ FE part ```http://localhost:3000/```
 # Libraries & Tools Used
 ### Libraries
 * JWT
-* cors
-* passport
-* rxjs
-* squelize
-* sqlite3
+* Cors
+* Passport
+* Sequelize-typescript
+* Squelize
+* Sqlite3
+* Dotenv
 * Axios
-* bcrypt<br>
+* Yup
+* Bcrypt<br>
 ### Tools
 * React
 * Nest 
