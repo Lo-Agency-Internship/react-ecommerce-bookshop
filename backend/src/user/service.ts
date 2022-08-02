@@ -11,10 +11,12 @@ export class UserService {
   ) {}
 
   async signup(body) {
-    const {name,email,address,role} = body
+    console.log(body)
+    const {name,email} = body;
+    const address = "NY"
     let {password} = body
     const salt = await bcrypt.genSalt();
      password = await bcrypt.hash(password,salt)
-    return await this.userRepository.create({name,email,password,address,role});
+    return await this.userRepository.create({name,email,password,address});
   }
 }

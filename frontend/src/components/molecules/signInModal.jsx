@@ -1,5 +1,5 @@
 import React from "react";
-import { userSchema } from "../../validations/userValidations";
+// import { userSchema } from "../../validations/userValidations";
 
 
 function SignInModal() {
@@ -10,13 +10,13 @@ function SignInModal() {
       password: event.target[1].value,
     };
     console.log(formData);
-    const isValid = await userSchema.isValid(formData);
-    console.log(isValid);
+    // const isValid = await userSchema.isValid(formData);
+    // console.log(isValid);
   };
 
   return (
 
-    <div className='w-screen my-12'>
+    <div className='w-screen my-12 transition duration-150 ease-in-out z-10 absolute'>
       <div className='w-screen flex flex-col justify-center items-center'>
         {/* <img className='w-8/12 h-auto' src={bookshop} alt="" /> */}
         <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
