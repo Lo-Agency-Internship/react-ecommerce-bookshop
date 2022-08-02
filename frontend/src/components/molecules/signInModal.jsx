@@ -10,9 +10,10 @@ function SignInModal() {
       email: event.target[0].value,
       password: event.target[1].value,
     };
-    console.log(formData);
-    const {loginData} = await axios.post(backend("auth/login"), formData) 
-
+    const {data} = await axios.post(backend("auth/login"), formData).then((response)=>{
+      console.table(response.data)
+    })
+    console.log(data);
   };
 
   return (
