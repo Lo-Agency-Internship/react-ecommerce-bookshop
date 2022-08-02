@@ -1,4 +1,5 @@
 import React  from "react";
+import image from "../../assets/images/main/1.jpg"
 
 export default function Card({book}) {
     return (
@@ -6,8 +7,8 @@ export default function Card({book}) {
               <a href={book.href} className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
-                    src={book.imageSrc}
-                    alt={book.imageAlt}
+                    src={image}
+                    alt="book"
                     className="w-full h-full object-center object-cover group-hover:opacity-75"
                   />
                 </div>

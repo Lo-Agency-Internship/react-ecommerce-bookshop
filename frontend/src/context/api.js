@@ -24,6 +24,7 @@ export const ApiProvider = ({ children }) => {
 	const getBookById = async (id) => {
 		setIsLoading(true);
 		const {data} = await axios.get(backend(`books/${id}`))
+		console.log(data)
 		setIsLoading(false);
 		return data
 	};

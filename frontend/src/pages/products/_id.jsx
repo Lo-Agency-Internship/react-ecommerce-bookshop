@@ -1,26 +1,24 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Products from "../../components/molecules/product";
 import { useApiContext } from "../../context/api";
+import Navbar from "../../components/organisms/navbar";
+import Footer from "../../components/organisms/footer";
 
 function ProductPage() {
 	const {id} = useParams()
-	const {getBookById, isLoading} = useApiContext()
-	const [book, setBook] = useState(null)
+	const {getBookById} = useApiContext()
+	const [book, setBook] = useState({})
 
 	useEffect(() => {
 		getBookById(id).then(setBook)
 	}, [])
 
-	if (isLoading)
-		return <div  className="mt-12 flex justify-center ">
-			LOADING...
-		</div>
-
 	return <>
-		<div  className="mt-12 flex justify-center ">
-			{book && book.title}
-		</div>
+			<Navbar/>
+			<Products bookInfos={book} />
+			<Footer/>
 	</>
 }
 
