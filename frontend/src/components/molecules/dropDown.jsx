@@ -41,7 +41,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
-            tabindex="-1"
+            tabIndex="-1"
           >
             <div className="py-1" role="none">
               {User ? (
@@ -50,7 +50,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
                     type="submit"
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-3"
                   >
                     List Order
@@ -59,7 +59,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
                     type="submit"
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-3"
                   >
                     Sign out
@@ -75,7 +75,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
                     type=""
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-3"
                   >
                     Sign up
@@ -88,7 +88,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
                     type=""
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-3"
                   >
                     Sign in

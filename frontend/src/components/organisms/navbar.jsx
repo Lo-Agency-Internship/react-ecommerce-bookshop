@@ -7,8 +7,6 @@ import { useLocation } from "react-router-dom";
 const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
   const { pathname } = useLocation()
 
-  console.log(pathname);
-
   const User = null;
   return (
     <div className="relative bg-white ">
