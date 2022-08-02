@@ -13,9 +13,6 @@ export class User extends Model {
   @Column({ type: DataTypes.STRING, allowNull: false })
   password: string;
 
-  @Column({ type: DataTypes.STRING, allowNull: false })
-  salt: string;
-
   @Column({ type: DataTypes.STRING, allowNull: true })
   address: string;
 
