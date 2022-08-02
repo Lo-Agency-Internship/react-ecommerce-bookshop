@@ -15,7 +15,15 @@ export const DatabaseProvider: Provider<Sequelize> = {
     sequelize.addModels([Book, Order, OrderedBook, User]);
 
     await sequelize.sync();
-
+    const admin = await User.findOne({where:{role: "admin"}})
+    if(!admin){
+      await User.create({
+        name:"admin",
+        email:"admin@admin.com",
+        password:"admin",
+        role:"admin"
+      })
+    }
     return sequelize;
   },
 };
