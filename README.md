@@ -26,7 +26,11 @@ FE part ```http://localhost:3000/```
 # Libraries & Tools Used
 ### Libraries
 * JWT
-* Better-sqlite
+* cors
+* passport
+* rxjs
+* squelize
+* sqlite3
 * Axios
 * bcrypt<br>
 ### Tools
