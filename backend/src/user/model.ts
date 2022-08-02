@@ -16,7 +16,7 @@ export class User extends Model {
   @Column({ type: DataTypes.STRING, allowNull: true })
   address: string;
 
-  @Column({ type: DataTypes.STRING, allowNull: false })
+  @Column({ type: DataTypes.STRING, allowNull: true })
   role: string;
 
   @HasMany(() => Order)
