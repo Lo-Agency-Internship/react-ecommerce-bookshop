@@ -24,8 +24,6 @@ function SignInModal({  }) {
     } catch (error) {
        console.log(error)
     }
-  
-  
   };
 
   return (
@@ -34,6 +32,7 @@ function SignInModal({  }) {
       <div className='w-screen flex flex-col justify-center items-center'>
 
         <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
+
           <h2 className='text-4xl font-bold text-center  text-white'>SignIn</h2>
           <div className='flex flex-col text-gray-400 py-2'>
             <label>Username</label>
