@@ -72,19 +72,19 @@ function SignUpModal({ setOpen }) {
                     {error && <p className="text-red-500"> {error} </p>}
                     <div className='flex flex-col  font-bold py-2'>
                         <label>Name</label>
-                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' type="text" placeholder="you name is..." />
+                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800' type="text" placeholder="you name is..." />
                     </div>
                     <div className='flex flex-col  font-bold py-2'>
                         <label>Username</label>
-                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' type="text" placeholder="type your e-mail like X@gmail.com" />
+                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800' type="text" placeholder="type your e-mail like X@gmail.com" />
                     </div>
                     <div className='flex flex-col  font-bold py-2'>
                         <label>Password</label>
-                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' type="password" placeholder="password" />
+                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800' type="password" placeholder="password" />
                     </div>
                     <div className='flex flex-col  font-bold py-2'>
                         <label>Re-Password</label>
-                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' type="password" placeholder="retype the password" />
+                        <input className='rounded-lg bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800' type="password" placeholder="retype the password" />
                     </div>
                     
                     <button type="submit" className='w-full my-5 py-2 bg-[#b6803dc7] text-gray font-semibold rounded-lg'>SignUp</button>

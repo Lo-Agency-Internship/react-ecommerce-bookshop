@@ -36,7 +36,7 @@ function SignInModal({ setOpen }) {
           <h2 className='text-4xl font-bold text-center text-[#b6803dc7] text-white'>SignIn</h2>
           <div className='flex flex-col font-bold py-2'>
             <label>Username</label>
-            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
+            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800'
               type="text"
               placeholder="e-mail"
             />
@@ -45,7 +45,7 @@ function SignInModal({ setOpen }) {
           </div>
           <div className='flex flex-col font-bold  py-2'>
             <label>Password</label>
-            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
+            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-white-800'
               type="password"
               placeholder="password"
             />
