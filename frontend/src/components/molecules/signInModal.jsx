@@ -29,28 +29,28 @@ function SignInModal({ setOpen }) {
   return (
 
     <div className='w-screen my-12 transition duration-150 ease-in-out z-10 absolute'>
-      <div className='w-screen flex flex-col justify-center items-center'>
+      <div className=' mt-24 w-screen flex flex-col justify-center items-center'>
 
-        <form className='max-w-[400px] w-full relative mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
+        <form className='max-w-[400px] w-full relative mx-auto bg-[#e2e2e2de] p-8 rounded-lg' onSubmit={handleSubmit}>
 
-          <h2 className='text-4xl font-bold text-center  text-white'>SignIn</h2>
-          <div className='flex flex-col text-gray-400 py-2'>
+          <h2 className='text-4xl font-bold text-center text-[#b6803dc7] text-white'>SignIn</h2>
+          <div className='flex flex-col font-bold py-2'>
             <label>Username</label>
-            <input className='rounded-lg bg-gray-600 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
+            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
               type="text"
               placeholder="e-mail"
             />
             <small className="text-danger">
             </small>
           </div>
-          <div className='flex flex-col text-gray-400 py-2'>
+          <div className='flex flex-col font-bold  py-2'>
             <label>Password</label>
-            <input className='rounded-lg bg-gray-600 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
+            <input className='rounded-lg bg-bg-[#fff] mt-2 p-2 focus:border-blue-500 focus:bg-gray-800'
               type="password"
               placeholder="password"
             />
           </div>
-          <button className='w-full my-5 py-2 bg-teal-500 text-gray font-semibold rounded-lg'>SignIn</button>
+          <button className='w-full my-5 py-2  bg-[#b6803dc7] text-gray font-semibold rounded-lg'>SignIn</button>
           <button
             className="cursor-pointer absolute top-0 right-0 mt-4 mr-5
                          text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out 
