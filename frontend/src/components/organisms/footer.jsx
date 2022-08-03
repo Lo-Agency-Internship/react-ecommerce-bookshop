@@ -4,7 +4,7 @@ import SocialIcons from "../molecules/socialIcons";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white ">
+    <footer className="bg-[#4b5563] text-white ">
     
       <ItemsContainer />
       <div
