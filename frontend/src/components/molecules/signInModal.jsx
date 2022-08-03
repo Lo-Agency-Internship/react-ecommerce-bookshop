@@ -1,16 +1,31 @@
 import React from "react";
 import axios from "axios";
 import { backend } from "../../util";
+import  jwt_decode from "jwt-decode";
 
 
 function SignInModal({ setOpen }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let formData = {
-      email: event.target[0].value,
-      password: event.target[1].value,
+      email: event.target[1].value,
+      password: event.target[0].value,
     };
-    const { data } = await axios.post(backend("auth/login"), formData).then((response) => {
+    console.log(formData);
+    const { data } = await axios.post(backend("auth/login"),{email:'mahsa@gmail.com',password:'12345678'}).then((response) => {
+      if(response.data){
+        console.log(response.data);
+        localStorage.setItem('token',response.data.accessToken);
+        const {accessToken} = response.data;
+        const decoded = jwt_decode(accessToken);
+        console.log('hope',decoded);
+
+        return response.data
+
+      }
+      else{
+        return console.log(response.data)
+      }
     })
   };
 

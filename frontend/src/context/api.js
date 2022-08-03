@@ -16,7 +16,11 @@ export const ApiProvider = ({ children }) => {
 
 	const getAllBooks = async () => {
 		setIsLoading(true);
-		const {data} = await axios.get(backend("books"))
+		const {data} = await axios.get(backend("books"), {
+			headers:{
+			'Authorization':` Bearer ${localStorage.getItem(token)}`
+			}
+		})
 		setIsLoading(false);
 		return data
 	}
