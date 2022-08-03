@@ -10,15 +10,19 @@ export const UserProvider = ({ children }) => {
 
 	const [user, setUser] = useState(null);
 
-	const SingIn = async ({email, password}) => {
-		setIsLoading(true);
-		const {data} = await axios.post(backend("auth/login"), {email, password})
-		setIsLoading(false);
+	const getUserInfo = async () => {
+		// setIsLoading(true);
+		// const {data} = await axios.post(backend("auth/login"), {email, password})
+		// setIsLoading(false);
 
-		data.token = // ey.......
+		// data.token = // ey.......
 
 		// decode the token
 		// {sub: ..., role: '', ...}
+		const token = localStorage.getItem(token);
+		const decoded = jwt_decode(accessToken);
+        console.log('hope',decoded);
+		//setUser(decode)
 
 		setUser(decodedToken)
 

@@ -1,5 +1,4 @@
 export class CreateOrderDto {
-    readonly orderCode: number;
-    readonly userId: number;
+  readonly orderCode: number;
+  readonly userId: number;
 }
-  

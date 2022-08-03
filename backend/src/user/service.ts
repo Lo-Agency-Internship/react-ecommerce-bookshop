@@ -12,20 +12,17 @@ export class UserService {
     private readonly orderService: OrderService,
   ) {}
 
-
-  async signup(body) {
-    const {name,email} = body
-    const foundUser = await this.userRepository.findOne({where:{email}})
-    if(!foundUser){
-      let {password} = body
+  async signup(body, res) {
+    const { name, email } = body;
+    const foundUser = await this.userRepository.findOne({ where: { email } });
+    if (!foundUser) {
+      let { password } = body;
       const salt = await bcrypt.genSalt();
-      password = await bcrypt.hash(password,salt)
-      await this.userRepository.create({name,email,password});
-      const {id} = await this.userRepository.findOne({where: {email}})
+      password = await bcrypt.hash(password, salt);
+      await this.userRepository.create({ name, email, password });
+      const { id } = await this.userRepository.findOne({ where: { email } });
       return await this.orderService.createOrder(id);
     }
-    return {
-      error:"Existing email!"
-    }
+    return res.status(602).send();
   }
 }

@@ -8,7 +8,7 @@ export const useApiContext = () => useContext(ApiContext);
 
 export const ApiProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
-
+	const [change, setChange] = useState(false)
 	useEffect(() => {
 		const f = async () => getAllBooks()
 		f()
@@ -27,14 +27,14 @@ export const ApiProvider = ({ children }) => {
 
 	const getBookById = async (id) => {
 		setIsLoading(true);
-		const {data} = await axios.get(backend(`books/${id}`))
+		const { data } = await axios.get(backend(`books/${id}`))
 		console.log(data)
 		setIsLoading(false);
 		return data
 	};
 
 	return (
-		<ApiContext.Provider value={{ getAllBooks, getBookById, isLoading }}>
+		<ApiContext.Provider value={{ getAllBooks, getBookById, isLoading, change, setChange }}>
 			{children}
 		</ApiContext.Provider>
 	)
