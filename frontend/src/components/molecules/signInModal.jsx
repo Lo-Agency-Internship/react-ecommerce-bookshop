@@ -1,19 +1,29 @@
 import React from "react";
 import axios from "axios";
 import { backend } from "../../util";
+import { useNavigate } from "react-router-dom";
 
-
-function SignInModal({ setOpen }) {
+function SignInModal({  }) {
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     let formData = {
       email: event.target[0].value,
       password: event.target[1].value,
     };
-    const { data } = await axios.post(backend("auth/login"), formData).then((response) => {
-      console.log(response.data)
-      return response
-    })
+    try {
+      await axios.post(backend("auth/login"), formData).then(response=>{
+        if (response.status === 201){
+          console.log(response.data)
+          navigate("/products")
+        }
+        
+      })
+
+
+    } catch (error) {
+       console.log(error)
+    }
   };
 
   return (
@@ -22,7 +32,7 @@ function SignInModal({ setOpen }) {
       <div className='w-screen flex flex-col justify-center items-center'>
 
         <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
-     
+
           <h2 className='text-4xl font-bold text-center  text-white'>SignIn</h2>
           <div className='flex flex-col text-gray-400 py-2'>
             <label>Username</label>
