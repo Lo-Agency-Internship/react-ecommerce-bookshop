@@ -3,8 +3,10 @@ import { nameSchema, emailSchema, passwordSchema } from "../../validations/userV
 import axios from "axios";
 import { backend } from "../../util";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpModal({ setOpen }) {
+    const navigate = useNavigate();
     const [error, setError] = useState(null)
     async function validate(data) {
         let isValid = await nameSchema.isValid({ name: data.name })
@@ -25,6 +27,7 @@ function SignUpModal({ setOpen }) {
     }
 
     const handleSubmit = async (event) => {
+        
         event.preventDefault();
         let formData = {
             name: event.target[0].value,
@@ -37,10 +40,23 @@ function SignUpModal({ setOpen }) {
         const validation = await validate(formData)
 
         if (!validation?.error) {
-            const { name, email, password } = formData
-            const { data } = await axios.post(backend("users"), { name, email, password })
+           try {
 
-            return data
+            const { name, email, password } = formData
+            await axios.post(backend("users"), { name, email, password }).then(response=>{
+                if (response.status === 201){
+                    console.log(response)
+                    console.log(response.data)
+                    navigate("/products")
+                  }
+
+            })
+            
+           } catch (error) {
+            setError("something went wrong, please try again!")
+           }
+           
+           
         }
         else {
             setError(validation.error)
@@ -49,8 +65,9 @@ function SignUpModal({ setOpen }) {
     return (
         <div className='w-screen'>
             <div className='mt-14 w-full flex flex-col '>
-                
+
                 <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
+         
                     <h2 className='text-4xl font-bold text-center  text-white'>SignUp</h2>
                     {error && <p className="text-red-500"> {error} </p>}
                     <div className='flex flex-col text-gray-400 py-2'>
