@@ -12,7 +12,7 @@ export class UserService {
     private readonly orderService: OrderService,
   ) {}
 
-  async signup(body,res) {
+  async signup(body, res) {
     const { name, email } = body;
     const foundUser = await this.userRepository.findOne({ where: { email } });
     if (!foundUser) {
@@ -23,7 +23,6 @@ export class UserService {
       const { id } = await this.userRepository.findOne({ where: { email } });
       return await this.orderService.createOrder(id);
     }
-    return res.status(401).send();
-
-  }}
-
+    return res.status(602).send();
+  }
+}
