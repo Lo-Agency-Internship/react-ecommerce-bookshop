@@ -1,4 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { CreateOrderDto } from './dtos';
 import { OrderService } from './service';
 
@@ -7,7 +13,7 @@ export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Get()
-  getOrders(){
+  getOrders() {
     return this.orderService.getAllOrders();
   }
 
@@ -16,12 +22,12 @@ export class OrderController {
     return this.orderService.createOrder(createOrderDto);
   }
 
-  @Get(":id")
-  getOrderById(@Param('id') id: number){
-    return this.orderService.getOrderById({id});
+  @Get(':id')
+  getOrderById(@Param('id') id: number) {
+    return this.orderService.getOrderById({ id });
   }
 
-  @Post(":id")
+  @Post(':id')
   confirm(@Param('id') id: number) {
     return this.orderService.confirmOrder(id);
   }

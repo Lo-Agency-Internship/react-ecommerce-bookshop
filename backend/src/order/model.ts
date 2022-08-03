@@ -1,20 +1,17 @@
 import { DataTypes } from 'sequelize';
 import {
   Column,
-  CreatedAt,
-  DeletedAt,
   ForeignKey,
   HasMany,
   Model,
   Table,
-  UpdatedAt,
 } from 'sequelize-typescript';
 import { Book } from 'src/book/model';
 import { User } from 'src/user/model';
 
 @Table
 export class Order extends Model {
-  @Column({ type: DataTypes.INTEGER, allowNull: true, })
+  @Column({ type: DataTypes.INTEGER, allowNull: true })
   orderCode: number;
 
   @ForeignKey(() => User)
