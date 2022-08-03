@@ -7,7 +7,6 @@ import { useState } from "react";
 function SignUpModal({ setOpen }) {
     const [error, setError] = useState(null)
     async function validate(data) {
-        console.log(data)
         let isValid = await nameSchema.isValid({ name: data.name })
         if (!isValid) {
             return { error: "name is not Valid" }

@@ -11,7 +11,6 @@ function SignInModal({ setOpen }) {
       password: event.target[1].value,
     };
     const { data } = await axios.post(backend("auth/login"), formData).then((response) => {
-      console.log(response.data)
       return response
     })
   };
