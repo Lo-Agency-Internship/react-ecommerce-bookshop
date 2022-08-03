@@ -49,8 +49,9 @@ function SignUpModal({ setOpen }) {
     return (
         <div className='w-screen'>
             <div className='mt-14 w-full flex flex-col '>
-                
+
                 <form className='max-w-[400px] w-full mx-auto bg-gray-900 p-8 rounded-lg' onSubmit={handleSubmit}>
+         
                     <h2 className='text-4xl font-bold text-center  text-white'>SignUp</h2>
                     {error && <p className="text-red-500"> {error} </p>}
                     <div className='flex flex-col text-gray-400 py-2'>
