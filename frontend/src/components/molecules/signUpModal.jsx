@@ -3,8 +3,10 @@ import { nameSchema, emailSchema, passwordSchema } from "../../validations/userV
 import axios from "axios";
 import { backend } from "../../util";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpModal({ setOpen }) {
+    const navigate = useNavigate();
     const [error, setError] = useState(null)
     async function validate(data) {
         let isValid = await nameSchema.isValid({ name: data.name })
@@ -25,6 +27,7 @@ function SignUpModal({ setOpen }) {
     }
 
     const handleSubmit = async (event) => {
+        
         event.preventDefault();
         let formData = {
             name: event.target[0].value,
@@ -35,9 +38,23 @@ function SignUpModal({ setOpen }) {
 
         const validation = await validate(formData)
         if (!validation?.error) {
+           try {
+
             const { name, email, password } = formData
-            const { data } = await axios.post(backend("users"), { name, email, password })
-            return data
+            await axios.post(backend("users"), { name, email, password }).then(response=>{
+                if (response.status === 201){
+                    console.log(response)
+                    console.log(response.data)
+                    navigate("/products")
+                  }
+
+            })
+            
+           } catch (error) {
+            setError("something went wrong, please try again!")
+           }
+           
+           
         }
         else {
             setError(validation.error)
