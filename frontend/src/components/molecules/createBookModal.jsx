@@ -3,8 +3,10 @@ import { priceSchema, authorSchema, titleSchema, genreSchema, publisherSchema } 
 import axios from "axios";
 import { useState } from "react";
 import { backend } from "../../util";
+import { useApiContext } from "../../context/api";
 
 function CreatBookModal({ setOpen }) {
+    const { change, setChange } = useApiContext()
     const [error, setError] = useState(null)
     async function validate(data) {
         let isValid = await priceSchema.isValid({ price: data.price })
@@ -46,9 +48,21 @@ function CreatBookModal({ setOpen }) {
 
         if (!validation?.error) {
             const { title, author, genre, publisher, price } = formData
-            const { data } = await axios.post(backend("books"), { title, author, genre, publisher, price })
+            try {
+                await axios.post(backend("books"), { title, author, genre, publisher, price }).then(response => {
+                    if (response.status === 201) {
+                        setOpen(false)
+                        setChange(!change)
 
-            return data
+                    }
+                })
+
+
+            } catch (error) {
+                setError("something went wrong!!")
+
+            }
+
         }
         else {
             setError(validation.error)
