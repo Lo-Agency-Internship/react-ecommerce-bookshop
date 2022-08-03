@@ -12,17 +12,17 @@ function SignInModal({ setOpen }) {
       password: event.target[1].value,
     };
     try {
-      await axios.post(backend("auth/login"), formData).then(response=>{
-        if (response.status === 201){
+      await axios.post(backend("auth/login"), formData).then(response => {
+        if (response.status === 201) {
           console.log(response.data)
           navigate("/products")
         }
-        
+
       })
 
 
     } catch (error) {
-       console.log(error)
+      console.log(error)
     }
   };
 
@@ -31,7 +31,7 @@ function SignInModal({ setOpen }) {
     <div className='w-screen my-12 transition duration-150 ease-in-out z-10 absolute'>
       <div className=' mt-24 w-screen flex flex-col justify-center items-center'>
 
-        <form className='max-w-[400px] w-full mx-auto bg-[#e2e2e2de] p-8 rounded-lg' onSubmit={handleSubmit}>
+        <form className='max-w-[400px] w-full relative mx-auto bg-[#e2e2e2de] p-8 rounded-lg' onSubmit={handleSubmit}>
 
           <h2 className='text-4xl font-bold text-center text-[#b6803dc7] text-white'>SignIn</h2>
           <div className='flex flex-col font-bold py-2'>
