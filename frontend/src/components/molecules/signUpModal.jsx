@@ -47,14 +47,18 @@ function SignUpModal({ setOpen }) {
                     console.log(response.data)
                     navigate("/products")
                   }
-
+                
             })
             
            } catch (error) {
-            setError("something went wrong, please try again!")
+            console.log(error);
+            if (error.response.status=== 602){
+                setError("This email has chosen before.")
+            }
+            else{
+                setError("Something went wrong!")
+            }
            }
-           
-           
         }
         else {
             setError(validation.error)
@@ -82,6 +86,7 @@ function SignUpModal({ setOpen }) {
                         <label>Re-Password</label>
                         <input className='rounded-lg bg-gray-600 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800' type="password" placeholder="retype the password" />
                     </div>
+                    
                     <button type="submit" className='w-full my-5 py-2 bg-teal-500 text-gray font-semibold rounded-lg'>SignUp</button>
                     <button
                         className="cursor-pointer absolute top-0 right-0 mt-4 mr-5
