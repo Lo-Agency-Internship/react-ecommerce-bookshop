@@ -17,12 +17,11 @@ export const DatabaseProvider: Provider<Sequelize> = {
 
     await sequelize.sync();
     const admin = await User.findOne({ where: { role: 'admin' } });
-    
+
     if (!admin) {
       const salt = await bcrypt.genSalt();
       let password = '12345678';
       password = await bcrypt.hash(password, salt);
-      console.log("testtttttt",password)
       await User.create({
         name: 'admin',
         email: 'admin@admin.com',

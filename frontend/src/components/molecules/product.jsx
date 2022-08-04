@@ -4,7 +4,7 @@ import image from "../../assets/images/main/1.jpg"
 const Products = ({ bookInfos }) => {
     return (
         <>
-            <div className="flex justify-center  w-full  bg-gray-200">
+            <div className="flex justify-center w-full bg-gray-200 mt-24">
                 <div className="bg-gray-400 flex-col my-12 items-center flex w-8/12 rounded-xl">
                     <h2 className="py-1 mt-6 text-3xl font-bold bold  px-8  rounded-lg">{bookInfos.title}</h2>
                     <h3 className="py-1  text-xl mb-2   rounded-lg">{bookInfos.price} Rial</h3>

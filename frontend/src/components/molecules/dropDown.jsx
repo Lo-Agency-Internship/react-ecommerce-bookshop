@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useApiContext } from "../../context/api";
 
-const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
+const Dropdown = ({ setShowSignUp, setShowSignIn ,handleSignOut}) => {
   const [showOptions, setShowOptions] = useState(false);
   const handleClick = () => {
     setShowOptions(!showOptions);
@@ -46,7 +46,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
           >
             <div className="py-1" role="none">
               {user ? (
-                <>
+                <>{user.role === "user" &&
                   <button
                     type="submit"
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
@@ -56,12 +56,14 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
                   >
                     List Order
                   </button>
+                  }
                   <button
                     type="submit"
                     className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-3"
+                    onClick={()=>handleSignOut()}
                   >
                     Sign out
                   </button>

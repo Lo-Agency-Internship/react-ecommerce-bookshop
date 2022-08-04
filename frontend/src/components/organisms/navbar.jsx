@@ -1,15 +1,19 @@
 import React from "react";
 import Images from "../../assets/images/bookshop.png"
 import Dropdown from "../molecules/dropDown";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApiContext } from "../../context/api";
 
-
 const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
+  
   const { pathname } = useLocation()
-
-  const {user} = useApiContext();
-  console.log('helia',user)
+  const navigate = useNavigate();
+  const {user,setUser} = useApiContext();
+  function  handleSignOut() {
+    localStorage.removeItem('token')
+    setUser(null)
+    navigate("/")
+  }
   return (
     <div className="fixed top-0 left-0 right-0 bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -28,7 +32,7 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
               </button>
             }
 
-            <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} />
+            <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} handleSignOut={handleSignOut}/>
           </div>
         </div>
       </div>
@@ -50,7 +54,7 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
             <p className="mt-3 text-center text-base font-medium text-gray-500">
               Do you want to leave?
               <button
-                className="text-gray-600 hover:text-gray-500">
+                className="text-gray-600 hover:text-gray-500" onClick={()=>handleSignOut()}>
                 Sign Out
               </button>
             </p>
@@ -81,6 +85,7 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
       </div>
     </div >
   );
+  
 }
 
 export default Navbar;

@@ -20,7 +20,6 @@ export class BookService {
   }
 
   async addBook(book: Partial<Book>) {
-   
     return await this.bookRepository.create(book);
   }
 

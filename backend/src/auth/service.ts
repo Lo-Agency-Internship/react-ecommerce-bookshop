@@ -14,7 +14,6 @@ export class AuthService {
 
   async login(request) {
     const { email, password } = request.body;
-    console.log(email,password)
     const user = await this.userRepository.findOne({ where: { email: email } });
     const isMatch = await bcrypt.compare(password, user.password);
 

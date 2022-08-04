@@ -43,8 +43,6 @@ function SignUpModal({ setOpen }) {
             const { name, email, password } = formData
             await axios.post(backend("users"), { name, email, password }).then(response=>{
                 if (response.status === 201){
-                    console.log(response)
-                    console.log(response.data)
                     navigate("/products")
                   }
                 

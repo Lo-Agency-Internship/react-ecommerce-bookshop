@@ -2,9 +2,7 @@ import React from "react";
 import axios from "axios";
 import { backend } from "../../util";
 import  jwt_decode from "jwt-decode";
-
-
-import { useNavigate, useResolvedPath } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useApiContext } from "../../context/api";
 
 function SignInModal({ setOpen }) {
@@ -19,8 +17,7 @@ function SignInModal({ setOpen }) {
   
     try{
      await axios.post(backend("auth/login"),formData).then((response) => {
-      if(response.status < 300 && response.status >= 200){
-        console.log(response.data);
+      if(response.status === 201){
         localStorage.setItem('token',response.data.accessToken);
         const {accessToken} = response.data;
         const decoded = jwt_decode(accessToken);
