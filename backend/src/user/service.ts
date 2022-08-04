@@ -25,4 +25,8 @@ export class UserService {
     }
     return res.status(602).send();
   }
+  async getAllUser() {
+    const users = await this.userRepository.findAll();
+    return users;
+  }
 }

@@ -48,7 +48,6 @@ function CreatBookModal({ setOpen }) {
 
         if (!validation?.error) {
             const { title, author, genre, publisher, price } = formData;
-            console.log(formData)
             try {
                 await axios.post(backend("books"), { title, author, genre, publisher, price },
                 {
