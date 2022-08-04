@@ -1,9 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { backend } from "../../util";
-import { useNavigate } from "react-router-dom";
+import  jwt_decode from "jwt-decode";
+
+
+import { useNavigate, useResolvedPath } from "react-router-dom";
+import { useApiContext } from "../../context/api";
 
 function SignInModal({ setOpen }) {
+  const {setUser} = useApiContext();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -11,20 +16,32 @@ function SignInModal({ setOpen }) {
       email: event.target[0].value,
       password: event.target[1].value,
     };
-    try {
-      await axios.post(backend("auth/login"), formData).then(response => {
-        if (response.status === 201) {
-          console.log(response.data)
-          navigate("/products")
-        }
+  
+    try{
+     await axios.post(backend("auth/login"),formData).then((response) => {
+      if(response.status === 201){
+        console.log(response.data);
+        localStorage.setItem('token',response.data.accessToken);
+        const {accessToken} = response.data;
+        const decoded = jwt_decode(accessToken);
+        setUser(decoded)
+        navigate("/products")
+      }
+    })
+     
+  } catch (error) {
+      
+        console.log(error)
+      }
 
-      })
-
-
-    } catch (error) {
-      console.log(error)
     }
-  };
+    
+
+
+
+    
+
+
 
   return (
 

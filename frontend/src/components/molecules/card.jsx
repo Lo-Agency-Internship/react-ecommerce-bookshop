@@ -2,7 +2,7 @@ import React  from "react";
 import { Link } from "react-router-dom";
 import image from "../../assets/images/main/1.jpg"
 
-export default function Card({book,key}) {
+export default function Card({book}) {
     return (
             <div className="lg:w-1/4 sm:w-4/6 md:w-4/6 m-2 flex flex-wrap my-5">
               <Link to={`/products/${book.id}`} className="group">

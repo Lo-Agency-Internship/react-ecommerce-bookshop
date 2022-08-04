@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import { useApiContext } from "../../context/api";
 
 const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
   const [showOptions, setShowOptions] = useState(false);
   const handleClick = () => {
     setShowOptions(!showOptions);
   };
-  const User = null;
+  const {user} = useApiContext();
   return (
     <>
       <div className="relative inline-block text-left">
@@ -44,7 +45,7 @@ const Dropdown = ({ setShowSignUp, setShowSignIn }) => {
             tabIndex="-1"
           >
             <div className="py-1" role="none">
-              {User ? (
+              {user ? (
                 <>
                   <button
                     type="submit"

@@ -3,11 +3,16 @@ import Navbar from "../../components/organisms/navbar";
 import Products from "../../components/organisms/products";
 import SearchBar from "../../components/molecules/searchBar";
 import CreatBookModal from "../../components/molecules/createBookModal";
-import { useState } from "react"
+import { useState } from "react";
+import { useApiContext } from "../../context/api";
+
+
 function ProductsPage() {
+	const {user} = useApiContext();
 	const [createModalIsOpen, setCreateModalIsOpen] = useState(false)
-	return <>
-		<div >
+	return( <>
+	{user? 
+		(<><div >
 			<Navbar setCreateModalIsOpen={setCreateModalIsOpen} />
 		</div>
 		<div >
@@ -20,8 +25,10 @@ function ProductsPage() {
 		</div>
 		<div >
 			<Footer />
-		</div>
-	</>
+		</div></>)
+	:(<p>loading</p>)
+}
+</>)
 }
 
 export default ProductsPage;
