@@ -19,7 +19,7 @@ function SignInModal({ setOpen }) {
   
     try{
      await axios.post(backend("auth/login"),formData).then((response) => {
-      if(response.status === 201){
+      if(response.status < 300 && response.status >= 200){
         console.log(response.data);
         localStorage.setItem('token',response.data.accessToken);
         const {accessToken} = response.data;

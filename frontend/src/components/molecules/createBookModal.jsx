@@ -47,9 +47,17 @@ function CreatBookModal({ setOpen }) {
         const validation = await validate(formData)
 
         if (!validation?.error) {
-            const { title, author, genre, publisher, price } = formData
+            const { title, author, genre, publisher, price } = formData;
+            console.log(formData)
             try {
-                await axios.post(backend("books"), { title, author, genre, publisher, price }).then(response => {
+                await axios.post(backend("books"), { title, author, genre, publisher, price },
+                {
+                    headers:
+                    {
+                        'Authorization':` Bearer ${localStorage.getItem('token')}`
+                    }
+                }).then(response => {
+                   
                     if (response.status === 201) {
                         setOpen(false)
                         setChange(!change)
