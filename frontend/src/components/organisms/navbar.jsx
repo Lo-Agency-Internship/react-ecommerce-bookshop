@@ -2,12 +2,14 @@ import React from "react";
 import Images from "../../assets/images/bookshop.png"
 import Dropdown from "../molecules/dropDown";
 import { useLocation } from "react-router-dom";
+import { useApiContext } from "../../context/api";
 
 
 const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
   const { pathname } = useLocation()
 
-  const User = null;
+  const {user} = useApiContext();
+  console.log('helia',user)
   return (
     <div className="fixed top-0 left-0 right-0 bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -42,7 +44,7 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
           <nav className="grid gap-y-8">
           </nav>
         </div>
-        {User ? (
+        {user ? (
           <>
             <button
               className="mt-10 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-700">

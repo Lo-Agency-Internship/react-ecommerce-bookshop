@@ -3,27 +3,28 @@ import axios from "axios";
 import { backend } from "../../util";
 import  jwt_decode from "jwt-decode";
 
+
 import { useNavigate, useResolvedPath } from "react-router-dom";
+import { useApiContext } from "../../context/api";
 
 function SignInModal({ setOpen }) {
+  const {setUser} = useApiContext();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     let formData = {
-      email: event.target[1].value,
-      password: event.target[0].value,
+      email: event.target[0].value,
+      password: event.target[1].value,
     };
   
-    console.log(formData);
     try{
-     await axios.post(backend("auth/login"),{email:'mahsa@gmail.com',password:'12345678'}).then((response) => {
+     await axios.post(backend("auth/login"),formData).then((response) => {
       if(response.status === 201){
         console.log(response.data);
         localStorage.setItem('token',response.data.accessToken);
         const {accessToken} = response.data;
         const decoded = jwt_decode(accessToken);
-        console.log('hope',decoded);
-       // setUser(decode)
+        setUser(decoded)
         navigate("/products")
       }
     })
