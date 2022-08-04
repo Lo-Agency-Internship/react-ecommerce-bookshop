@@ -20,11 +20,13 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             {pathname === "/products" &&
+              user.role === "admin" &&
               <button
                 onClick={() => setCreateModalIsOpen(true)}
                 className="mr-2 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 ">
                 Add New
-              </button>}
+              </button>
+            }
 
             <Dropdown setShowSignUp={setShowSignUp} setShowSignIn={setShowSignIn} />
           </div>
@@ -34,11 +36,7 @@ const Navbar = ({ setShowSignUp, setShowSignIn, setCreateModalIsOpen }) => {
         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
 
         </div>
-        {/* <button id="dropdownMenuIconButton"
-          data-dropdown-toggle="dropdownDots"
-          class="absolute py-7 right-0 inline-flex items-right p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
-          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
-        </button> */}
+     
 
         <div className="pt-6 pb-6 px-5">
           <nav className="grid gap-y-8">
